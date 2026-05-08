@@ -1,0 +1,16 @@
+{
+  "name": "codex-deepseek-bridge",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Bridge OpenAI Responses API calls to DeepSeek chat/completions for Codex or cc switch.",
+  "scripts": {
+    "start": "node ./server.mjs",
+    "start:mock": "node ./server.mjs",
+    "smoke": "node ./smoke-test.mjs",
+    "test": "node ./test-bridge.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

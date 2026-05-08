@@ -1,0 +1,12 @@
+# 明文 DeepSeek API Key，绝对不能提交
+api-key.txt
+
+# Node.js
+node_modules/
+*.log
+
+# Claude Code 内部文件
+.claude/
+
+# any2codex 是独立子项目（有自己的 .git），作为子模块处理
+any2codex/
