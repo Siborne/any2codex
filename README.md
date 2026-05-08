@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/any2codex-v1.1.0-7dd3fc?style=for-the-badge&logo=openai&logoColor=white" alt="Version">
+  <img src="https://img.shields.io/badge/any2codex-v1.2.0-7dd3fc?style=for-the-badge&logo=openai&logoColor=white" alt="Version">
   <img src="https://img.shields.io/badge/node-%3E%3D18-86efac?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js">
   <img src="https://img.shields.io/badge/license-MIT-facc15?style=for-the-badge" alt="License">
   <img src="https://img.shields.io/badge/platform-Windows-38bdf8?style=for-the-badge&logo=windows&logoColor=white" alt="Platform">
@@ -37,7 +37,7 @@ Codex / cc switch          any2codex (127.0.0.1:8787)          DeepSeek API
 
 ### 第一步：配置 API Key
 
-在项目文件夹下**新建 `api-key.txt`**，填入你的 DeepSeek API Key：
+在项目文件夹`~/scripts/`下**新建 `api-key.txt`**，填入你的 DeepSeek API Key：
 
 ```
 sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -61,7 +61,7 @@ api_key  = local-proxy-key
 
 ### 第四步：启动脚本
 
-双击 **`启动中转脚本.cmd`**，窗口保持打开，浏览器会自动打开可视化面板。
+双击 **`scripts\start.cmd`**，窗口保持打开，浏览器会自动打开可视化面板。
 
 ### 第五步：启动 Codex
 
@@ -116,7 +116,7 @@ api_key  = local-proxy-key
 
 ## 另一台电脑使用
 
-复制整个文件夹过去，双击 `启动中转脚本.cmd` 即可。文件夹内含 `runtime\node.exe`，无需单独安装 Node.js。
+复制整个文件夹过去，双击 `scripts\start.cmd` 即可。文件夹内含 `runtime\node.exe`，无需单独安装 Node.js。
 
 ---
 
@@ -139,6 +139,30 @@ api_key  = local-proxy-key
 
 ---
 
+
+## 项目结构
+
+```
+any2codex/
+├── src/
+│   ├── server.mjs          ← 核心桥接服务
+│   ├── smoke-test.mjs      ← 冒烟测试
+│   └── test-bridge.mjs     ← Mock 自测启动器
+├── scripts/
+│   ├── start.cmd           ← 一键启动
+│   ├── open-ui.cmd         ← 打开可视化面板
+│   ├── verify.cmd          ← 真实链路验证
+│   ├── bootstrap.cmd       ← 安装到 AppData
+│   ├── start-bridge.ps1    ← 启动逻辑
+│   └── verify-real.ps1     ← 验证逻辑
+├── runtime/
+│   └── node.exe            ← 便携 Node.js（无需安装）
+├── bridge-config.json      ← 供应商/模型配置
+├── api-key.txt             ← API Key（已 gitignore）
+├── package.json
+└── README.md
+```
+
 ## 测试
 
 ```bash
@@ -149,7 +173,7 @@ npm test
 npm run smoke
 
 # 真实 API 链路验证（PowerShell）
-.\verify-real.ps1 -ApiKey "sk-..."
+.\scripts\verify-real.ps1 -ApiKey "sk-..."
 ```
 
 ---

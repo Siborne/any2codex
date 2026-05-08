@@ -1,0 +1,9 @@
+﻿{
+    "api_path":  "/chat/completions",
+    "local_port":  8787,
+    "local_api_key":  "local-proxy-key",
+    "provider":  "deepseek",
+    "local_host":  "127.0.0.1",
+    "model":  "deepseek-v4-pro",
+    "base_url":  "https://api.deepseek.com"
+}
